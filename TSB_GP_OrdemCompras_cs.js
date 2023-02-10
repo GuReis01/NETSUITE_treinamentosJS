@@ -14,7 +14,7 @@ function(
 ){
 
    function pageInit(scriptContext){
-
+      return true;
    };
 
    function saveRecord(scriptContext){
