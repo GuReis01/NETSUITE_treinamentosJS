@@ -1,0 +1,35 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------"Tarefa 2 - Client Scripts, lógica para tabela de promoções, governança, módulos (record e search) e debugar"------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+////////////////////////////////////////////////////////////////////////"VALIDAÇÕES"/////////////////////////////////////////////////////////////////////////
+
+[1] - O usuário só pode inserir linhas na sublista "Ordem de Compras -> Promoções" após existir linhas na sublista "Ordem de Compras -> Linhas".
+      Caso ele tente, exibir mensagem de erro: "Você deve inserir linhas de item antes de inserir promoções."<FEITOS>
+
+[2] - O campo "Promoções -> SUBSIDIÁRIA" deve ser correspondente a "Ordem de Compras -> SUBSIDIÁRIA".
+      Caso não exista correspondência, exibir mensagem de erro: "A subsidiária da promoção não corresponde à subsidiária da Ordem de Compras."<FEITO>
+
+[3] - O campo "Ordem de Compras -> DATA DE APROVAÇÃO" deve estar entre "Promoções -> DATA INÍCIO" e "Promoções -> DATA FIM".
+      Caso essa regra não seja atendida, exibir mensagem de erro: "A promoção não possuí intervalo de datas válido para essa Ordem de Compras."<FEITO>
+
+[4] - O campo "Promoções -> ITENS" deve possuir pelo menos um item selecionado que está presente também em "Ordem de Compras -> Linhas -> ITEM".
+      Caso não exista nenhuma relação de itens, exibir mensagem de erro: "A promoção não possuí uma seleção de itens válida para essa Ordem de Compras."<FEITO>
+
+[5] - Caso a promoção passe pela validação [3], comparar "Promoções -> QUANTIDADE MÍNIMA" com "Ordem de Compras -> Linhas -> QUANTIDADE".
+      Caso nenhuma linha passe da validação de quantidade, exibir mensagem de erro: "A promoção possuí uma seleção de itens válida, mas a quantidade mínima de itens não foi atendida."<FEITO>
+
+[IMPORTANTE] - O desconto da promoção só será aplicado nas linhas que passaram por todas validações, que possuírem relação "Promoções -> ITENS" com "Ordem de Compras -> Linhas -> ITEM"
+               e também "Promoções -> QUANTIDADE MÍNIMA" com "Ordem de Compras -> Linhas -> QUANTIDADE"
+
+[6] - Em "Ordem de Compra -> Lista Promoções", após passar pela validação, deve ser atribuido os campos "Data Inicio", "Data Fim" e "Percentual de Desconto" 
+      Puxando da "promoção correspondente"; 
+
+      * Gatilho = Quando for cicar em "Adicionar Promoção - OK"
+
+[7] - Pegar o "Valor" da linha e reduzir com base no "Percentual de Desconto" (Valor - Valor * Percentual de Desconto )
+   * "Valor Desconto" quantidade de desconto (Valor * Percentual de Desconto)
+   * "Valor Total" valor sem descontos
+   * "Percentual de Desconto" o Percentual
+   * "Promoções Aplicadas" a promo que é válida para o "Item" correspondente
+   * Gatilho = Clicar em salvar tabela;

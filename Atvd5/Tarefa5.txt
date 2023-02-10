@@ -1,0 +1,22 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------"Terefa 5 - Map e Reduce, HTTPS e RESTlet"------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[1 - Etapa] - Criar um Suitelet que permite a listagem das "Ordens de Compras"
+
+   1.1 - "Criação do campo select" na listagem das "Sublistas"; 
+      1.2 - "Criação do botão CALL MAP" que irá executar o MAP, para cada "Linha da Ordem de Compra" marcada como selecionada; 
+
+   Executando o MAP / REDUCDE
+
+   2.1 - Enviar as "Ordem de Compras" "selecionadas" para o RESTlet via "Client Script"
+      2.2 - Por meio de um "botão", criado a partir do "User Event"
+                                          
+   "Condicional" 
+
+   2.4 - Filtragem pelo "ID Interno"
+   2.5 - Se a "Ordem de Compra" estiver "Aprovada"
+      2.6 - Deverá retorna os "Itens" dessa "Ordem de Compra" 
+
+   Acessar cada uma das "linhas das Ordem de Compras" quem passaram na Condicional
+   Verifique se a linha detém o "Histórico de Alterações", e envia-los para a "Ordem de Compra"
